@@ -10,30 +10,33 @@ export default function Index() {
   const popularProperties = [
     {
       id: 1,
-      title: '2-комнатная квартира в центре',
-      price: '45 000',
-      location: 'Москва, Арбат',
+      title: 'Просторная 2-комнатная в центре',
+      price: '85 000',
+      location: 'Москва, Тверская ул.',
       rooms: 2,
-      area: 65,
-      image: '/img/6f48f380-5747-448c-af5c-ab9077784291.jpg'
+      area: 72,
+      image: '/img/9995f870-aa0f-4eb6-aa9f-222edc7ae062.jpg',
+      features: ['Дизайнерский ремонт', 'Панорамные окна', 'Консьерж']
     },
     {
       id: 2,
-      title: 'Студия с современным ремонтом',
-      price: '35 000',
+      title: 'Студия с видом на город',
+      price: '55 000',
       location: 'СПб, Невский проспект',
       rooms: 1,
       area: 45,
-      image: '/img/ab7bf283-e14a-4f58-bbdb-5653155c317f.jpg'
+      image: '/img/d318ff9b-1d8f-4315-8e19-6bc0bc8ff1f5.jpg',
+      features: ['Евроремонт', 'Техника', 'Метро 2 мин']
     },
     {
       id: 3,
-      title: '3-комнатная квартира у метро',
-      price: '60 000',
+      title: 'Семейная 3-комнатная',
+      price: '95 000',
       location: 'Москва, Сокольники',
       rooms: 3,
-      area: 85,
-      image: '/img/9c90844d-f1eb-4415-8353-8034a2f7281b.jpg'
+      area: 89,
+      image: '/img/9c90844d-f1eb-4415-8353-8034a2f7281b.jpg',
+      features: ['Школа рядом', 'Паркинг', 'Балкон']
     }
   ]
 
@@ -213,8 +216,17 @@ export default function Index() {
                       {property.area} м²
                     </span>
                   </div>
-                  <Button className="w-full" variant="outline">
-                    Подробнее
+                  {property.features && (
+                    <div className="flex flex-wrap gap-2 mb-4">
+                      {property.features.map((feature, index) => (
+                        <Badge key={index} variant="secondary" className="text-xs">
+                          {feature}
+                        </Badge>
+                      ))}
+                    </div>
+                  )}
+                  <Button className="w-full bg-primary hover:bg-primary/90 text-white">
+                    Связаться с агентом
                   </Button>
                 </CardContent>
               </Card>
